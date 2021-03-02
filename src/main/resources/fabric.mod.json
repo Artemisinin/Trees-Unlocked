@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "trees_unlocked",
+  "version": "${version}",
+  "name": "Trees Unlocked",
+  "description": "Unlocked tree feature so it can generate in caves, on the sea floor, in the nether, and in the end--about anywhere, really.",
+  "authors": [
+    "Artemisinin"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/trees_unlocked/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.artemis.trees_unlocked.client.TreesUnlockedClient"
+    ],
+    "main": [
+      "com.artemis.trees_unlocked.TreesUnlocked"
+    ]
+  },
+  "mixins": [
+    "trees_unlocked.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.2",
+    "fabric": "*",
+    "minecraft": "1.17-alpha.21.8.b"
+  }
+}

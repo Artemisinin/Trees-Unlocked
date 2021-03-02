@@ -1,0 +1,39 @@
+{
+  "config": {
+    "feature": {
+      "config": {
+        "feature": "trees_unlocked:cave_ghost_tree",
+        "decorator": {
+          "config": {
+            "outer": {
+              "config": {},
+              "type": "minecraft:square"
+            },
+            "inner": {
+              "config": {
+                "bottom_inclusive": {
+                  "above_bottom": 10
+                },
+                "top_inclusive": {
+                  "below_top": 10
+                }
+              },
+              "type": "minecraft:range"
+            }
+          },
+          "type": "minecraft:decorated"
+        }
+      },
+      "type": "minecraft:decorated"
+    },
+    "decorator": {
+      "config": {
+        "count": 20,
+        "extra_chance": 0.1,
+        "extra_count": 1
+      },
+      "type": "minecraft:count_extra"
+    }
+  },
+  "type": "minecraft:decorated"
+}

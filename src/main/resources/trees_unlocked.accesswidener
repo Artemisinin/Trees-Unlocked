@@ -1,0 +1,3 @@
+accessWidener v1 named
+
+extendable method net/minecraft/world/gen/feature/TreeFeature generate (Lnet/minecraft/world/gen/feature/util/FeatureContext;)Z

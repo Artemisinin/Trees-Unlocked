@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:overworld_caves",
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": -200055084505552,
+    "settings": "trees_unlocked:tree_caverns",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "seed": -200055084505552,
+      "biome": "trees_unlocked:caves"
+    }
+  }
+}

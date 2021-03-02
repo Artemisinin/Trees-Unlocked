@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:farmland",
+    "minecraft:dirt",
+    "minecraft:coarse_dirt",
+    "minecraft:grass_block",
+    "minecraft:mycelium",
+    "minecraft:podzol",
+    "minecraft:gravel",
+    "#minecraft:sand",
+    "#minecraft:base_stone_overworld",
+    "#minecraft:base_stone_nether",
+    "minecraft:end_stone"
+  ]
+}

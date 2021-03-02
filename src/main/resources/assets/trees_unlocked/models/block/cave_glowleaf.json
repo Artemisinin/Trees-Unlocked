@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "trees_unlocked:block/cave_glowleaf"
+  }
+}
