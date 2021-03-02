@@ -29,7 +29,7 @@ public class TreesUnlockedConfiguredFeatures {
                         new SimpleBlockStateProvider(TreesUnlocked.PORIFERAN_CHUNK.getDefaultState()),
                         new BlobFoliagePlacer(UniformIntDistribution.of(2, 0), UniformIntDistribution.of(1, 1),4),
                         new StraightTrunkPlacer(4, 1, 1),
-                        new TwoLayersFeatureSize(3, 3, 1))).heightmap(Heightmap.Type.MOTION_BLOCKING).build()));
+                        new TwoLayersFeatureSize(3, 3, 1))).heightmap(Heightmap.Type.MOTION_BLOCKING).maxWaterDepth(-1).build()));
 
         SCATTERED_PORIFERANS = register("trees_unlocked:scattered_poriferans", PORIFERAN.rangeOf(YOffset.aboveBottom(80), YOffset.fixed(50)).spreadHorizontally().repeat(10));
     }

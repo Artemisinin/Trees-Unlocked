@@ -8,8 +8,12 @@ import java.util.*;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.state.property.Properties;
 import net.minecraft.structure.Structure;
+import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockPos.Mutable;
@@ -37,6 +41,28 @@ public class UnlockedTreeFeature extends TreeFeature {
     // Allows this to be placed just about anywhere.  Edit the json to configure allowable blocks.
     private static boolean canPlaceTreeOn(TestableWorld world, BlockPos pos) {
         return world.testBlockState(pos, (state) -> state.isIn(VALID_GROUND_BLOCKS));
+    }
+
+    // Uses config.maxWaterDepth to make sure trees aren't placed in water that is too deep.  If config.maxWaterDepth is <0, the check will be skipped. 
+    private static boolean isIllegallySubmerged(TestableWorld world, BlockPos pos, TreeFeatureConfig config) {
+        if (config.maxWaterDepth >= 0) {
+            int blocksUp = 0;
+            while (blocksUp < (config.maxWaterDepth + 1)) {
+                BlockPos pos2 = pos.offset(Direction.Axis.Y, blocksUp);
+                // If a non-water block is encountered, return false since it is not submerged. Currently allows *flowing* water.
+                if (!world.testBlockState(pos2, (state) -> state.getFluidState().isEqualAndStill(Fluids.WATER))) {
+                    return false;
+                // Otherwise it was a water block, so increment to check the next block.
+                } else {
+                    blocksUp++;
+                }
+            }
+            // We ran through the maximum water height allowed and found more water above, so this would be illegal submerged, return true.
+            return true;
+        // config.maxWaterDepth apparently was null, so the check is invalid and the tree would not be illegally submerged, return false.
+        } else {
+            return false;
+        }
     }
 
     private int getTopPosition(TestableWorld world, int height, BlockPos pos, TreeFeatureConfig config) {
@@ -67,15 +93,18 @@ public class UnlockedTreeFeature extends TreeFeature {
         int k = i - j;
         int l = config.foliagePlacer.getRandomRadius(random, k);
         int r;
+
         if (pos.getY() >= world.getBottomY() + 1 && pos.getY() + i + 1 <= world.getTopY()) {
-            if (!canPlaceTreeOn(world, pos.down())) {
+            if (!canPlaceTreeOn(world, pos.down()) || isIllegallySubmerged(world, pos, config)) {
                 return false;
             } else {
                 OptionalInt optionalInt = config.minimumSize.getMinClippedHeight();
                 r = this.getTopPosition(world, i, pos, config);
                 if (r >= i || optionalInt.isPresent() && r >= optionalInt.getAsInt()) {
                     List<TreeNode> list = config.trunkPlacer.generate(world, random, r, pos, logPositions, box, config);
-                    list.forEach((node) -> config.foliagePlacer.generate(world, random, config, r, node, j, l, leavesPositions, box));
+                    list.forEach((node) -> {
+                        config.foliagePlacer.generate(world, random, config, r, node, j, l, leavesPositions, box);
+                    });
                     return true;
                 } else {
                     return false;
@@ -85,6 +114,7 @@ public class UnlockedTreeFeature extends TreeFeature {
             return false;
         }
     }
+
 
     @Override
     public final boolean generate(FeatureContext<TreeFeatureConfig> context) {
