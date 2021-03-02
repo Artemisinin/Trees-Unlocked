@@ -33,10 +33,20 @@
     [],
     [],
     [
+      "minecraft:underwater_magma",
+      "minecraft:disk_sand",
+      "minecraft:disk_clay",
+      "minecraft:disk_gravel",
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel",
+      "minecraft:ore_granite",
+      "minecraft:ore_diorite",
+      "minecraft:ore_andesite",
+      "minecraft:ore_coal_lower",
+      "minecraft:ore_iron_lower",
+      "minecraft:ore_copper",
       "minecraft:ore_redstone",
-      "minecraft:ore_diamond",
-      "minecraft:ore_lapis",
-      "minecraft:ore_lapis_buried"
+      "minecraft:ore_lapis"
     ],
     [
       "trees_unlocked:cave_scattered_ghost_trees"
