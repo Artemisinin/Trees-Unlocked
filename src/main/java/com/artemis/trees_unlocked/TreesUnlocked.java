@@ -50,5 +50,6 @@ public class TreesUnlocked implements ModInitializer {
 
         // Add cave trees to the world.
         BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.OCEAN), GenerationStep.Feature.VEGETAL_DECORATION, RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier("trees_unlocked", "scattered_poriferans")));
+        BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.SWAMP), GenerationStep.Feature.VEGETAL_DECORATION, RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier("trees_unlocked", "swamp_oak_shrubs")));
     }
 }

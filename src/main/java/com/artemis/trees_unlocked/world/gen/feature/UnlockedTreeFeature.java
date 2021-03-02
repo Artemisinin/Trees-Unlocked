@@ -43,7 +43,7 @@ public class UnlockedTreeFeature extends TreeFeature {
         return world.testBlockState(pos, (state) -> state.isIn(VALID_GROUND_BLOCKS));
     }
 
-    // Uses config.maxWaterDepth to make sure trees aren't placed in water that is too deep.  If config.maxWaterDepth is <0, the check will be skipped. 
+    // Uses config.maxWaterDepth to make sure trees aren't placed in water that is too deep.  If config.maxWaterDepth is <0, the check will be skipped.
     private static boolean isIllegallySubmerged(TestableWorld world, BlockPos pos, TreeFeatureConfig config) {
         if (config.maxWaterDepth >= 0) {
             int blocksUp = 0;

@@ -4,6 +4,7 @@
   "package": "com.artemis.trees_unlocked.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "TrunkPlacerMixin"
   ],
   "client": [
   ],

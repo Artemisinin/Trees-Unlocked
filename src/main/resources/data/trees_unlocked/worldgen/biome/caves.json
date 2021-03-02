@@ -15,8 +15,7 @@
   "surface_builder": "minecraft:stone",
   "carvers": {
     "air": [
-      "minecraft:cave",
-      "minecraft:canyon"
+      "minecraft:cave"
     ]
   },
   "features": [

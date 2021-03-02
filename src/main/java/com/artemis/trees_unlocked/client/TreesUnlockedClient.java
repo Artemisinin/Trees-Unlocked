@@ -12,7 +12,6 @@ import static com.artemis.trees_unlocked.TreesUnlocked.CAVE_GLOWLEAF;
 public class TreesUnlockedClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-
-        //BlockRenderLayerMap.INSTANCE.putBlock(CAVE_GLOWLEAF, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(CAVE_GLOWLEAF, RenderLayer.getCutout());
     }
 }

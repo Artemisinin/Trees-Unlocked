@@ -3,7 +3,7 @@
   "noise_caves_enabled": true,
   "deepslate_enabled": true,
   "bedrock_floor_position": -64,
-  "sea_level": 63,
+  "sea_level": 32,
   "disable_mob_generation": false,
   "default_block": {
     "Name": "minecraft:stone"
