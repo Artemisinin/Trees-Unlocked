@@ -4,6 +4,10 @@
   "package": "com.artemis.trees_unlocked.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "FoliagePlacerMixin",
+    "GetTopPositionInvoker",
+    "LeavesBlockMixin",
+    "PlaceLogsAndLeavesInvoker",
     "TrunkPlacerMixin"
   ],
   "client": [
